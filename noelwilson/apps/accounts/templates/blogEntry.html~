@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block title %}
+My Blog
+{% endblock %}	
+
+{% block content %}
+	<h2>Blog Posts</h2>
+	<form action="." method="POST">
+		{% csrf_token %}
+		{{ blog_form.as_p }}
+		<input type="submit" value="Save">
+	</form>
+{% endblock %}	
+
+

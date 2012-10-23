@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load getUrlPictureSize %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/technical.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/artwork.css">
+{% endblock %}
+
+{% block js %}
+ <script src="{{ STATIC_PREFIX }}js/artwork.js" type="text/javascript"
+    charset="utf-8"></script>
+{% endblock %}
+
+{% block title %}
+Artwork page
+{% endblock %}
+
+{% block header %}
+	<div class="Header" style="height:125px;">
+		<img src="{{ STATIC_PREFIX }}img/smokeBlack.jpg" style="width:100%; height:100%;" />
+		<h1 class="header">Noel Wilson Artwork</h1>
+	</div>
+{% endblock %}
+
+{% block navi %}
+	<div class="" style="height:10px;position:relative;top:-10px;">
+		<div class="secondNaviDiv">
+			<a class="secondNavi" href="/artwork/3DArtwork/">3D artwork</a>
+		</div>
+		<div class="secondNaviDiv">
+			<a class="secondNavi" href="/artwork/2DArtwork/">2D artwork</a>
+		</div>
+	</div>
+	<br />
+	<hr/>
+{% endblock %}
+
+{% block content %}
+	<!--div class="contactInfo">
+		{{contactInfo|safe}}
+	</div-->
+	{% for p in projects %}
+	<div class="" style= "clear:both;">
+		<div class="projectMedia" style= "float:left;clear:both;">
+			{% ifnotequal p.videoFile '' %}
+				{{p.videoFile|safe}}
+			{% else %}
+				<img src="{{ STATIC_PREFIX }}{{ p.imageFile }}" style="width:350px;height:250px;" />
+			{% endifnotequal %}
+		</div>
+		<div class="projectText" style= "float:left;margin-left:5%;width:200px;">
+			<p style="color:white;"><u>{{p.title}}</u> - {{ p.created|date:"D d M Y" }}</p>
+			{{p.text|safe}}
+			<br />
+		</div>
+	</div>
+	{% endfor %}
+	<div class="contentBoxClearBoth">
+		<div class="innerContentBox">
+			<h1 style= "margin-right: 25%;margin-left: 25%;">{{galleryType}} Gallery</h1>
+			<hr/>
+			{% for p in photos %}
+				<div class="picture_div">
+						<p class= "center">{{ p.title }} <br/> {{ p.created|date }}</p>
+						<a href="{{ p|picUrlSize:'large' }}" target="_blank">
+							<img style= "width:200px;max-height:250px;" class="picture" src="{{ p.get_pic_url }}"/>
+						</a>
+				</div>
+			{% endfor %}
+			<div style="clear:both;width:5%;margin-right:auto;margin-left:auto;">
+				{% if photos.has_previous %}
+					<a href="?page={{ page.previous_page_number }}">prev</a>
+				{% endif %}
+					| {{ photos.number }} |
+				{% if photos.has_next %}
+					<a href="?page={{ page.next_page_number }}">next</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+

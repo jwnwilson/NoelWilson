@@ -1,0 +1,16 @@
+{% extends "myblog.html" %}
+
+{% block title %}
+New Category
+{% endblock %}	
+
+{% block content %}
+<div class="contentBox">
+	<h2>Blog Posts</h2>
+	<form action="." method="POST">
+		{% csrf_token %}
+		{{ category_form.as_p }}
+		<input type="submit" value="Save">
+	</form>
+</div>
+{% endblock %}	

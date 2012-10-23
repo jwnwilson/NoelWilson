@@ -1,0 +1,18 @@
+{% extends "myblog.html" %}
+
+{% block title %}
+New Comment
+{% endblock %}	
+
+{% block content %}
+<div class="contentBox">
+	<h2>new comment</h2>
+	<form action="." method="POST">
+		{% csrf_token %}
+		{{ comment_form.as_p }}
+		<input type="submit" value="Save">
+	</form>
+</div>
+{% endblock %}	
+
+

@@ -1,0 +1,12 @@
+[
+	{"pk": 1, 
+	"model": "data.project", 
+	"fields": {
+		"imageFile": "img/blogV2.jpg", 
+		"updated": "2012-10-12T16:10:52Z", 
+		"videoFile": "", "title": "Blog V2", 
+		"text": "A vastly improved version of the previous blog I made with multiple users and separate posts for each one, also the ability to edit and delete blog posts. An archive has been added to the website as well.\n\nPython\nDjango\nMySQL\nHtml\nCSS / CSS3\nThis website has been deployed on a cloud server using Django and MySQL\n\nLink to website\n\nIn my git hub repository", 
+		"created": "2012-10-12T15:41:03Z", 
+		"projectList": 1}
+	}
+]

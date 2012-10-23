@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+<object pk="1" model="data.project">
+<field to="data.projectlists" name="projectList" rel="ManyToOneRel">1</field>
+<field type="DateTimeField" name="created">2012-10-12T15:41:03+00:00</field>
+<field type="DateTimeField" name="updated">2012-10-12T16:10:52+00:00</field>
+<field type="CharField" name="title">Blog V2</field>
+<field type="TextField" name="text"><pre>A vastly improved version of the previous blog I made with multiple users and separate posts for each one, also the ability to edit and delete blog posts. An archive has been added to the website as well.
+
+Python
+Django
+MySQL
+Html
+CSS / CSS3
+This website has been deployed on a cloud server using Django and MySQL
+
+Link to website
+
+In my git hub repository</pre></field>
+<field type="CharField" name="videoFile">
+</field><field type="CharField" name="imageFile">img/blogV2.jpg</field>
+</object>
+</django-objects>

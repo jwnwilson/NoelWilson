@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block title %}
+Blog Manager
+{% endblock %}	
+
+{% block content %}
+	<h3 style="float:left;padding-right:550px;">Blog Posts:</h3>
+	<br />
+	<div class="naviButton" style = "width:100px;">
+		<a href="{% url accounts_blogEntryDefault %}">New Post</a>
+	</div>
+	<br /><br /><br />
+	<form action="." method="POST">
+		{% csrf_token %}
+		{% for field in blog_form %}
+			<div class="fieldWrapper" >
+				{{ field }}
+			</div>
+		{% endfor %}
+		<input type="submit" value="edit_selected" name="blogManagerSubmit">
+		<input type="submit" value="delete_selected" name="blogManagerSubmit">
+	</form>
+{% endblock %}	

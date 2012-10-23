@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block title %}
+My Blog
+{% endblock %}	
+
+{% block content %}
+	<h2 style="float:left;padding-right:550px;">Blog Entries</h2>
+	<br />
+	<div class="naviButton" style = "width:100px;">
+		<a href="{% url accounts_blogManager %}"> Blog Manager</a>
+	</div>
+	<br /><br /><br />
+	<div>
+	{% for e in page %}
+		<div>{{e.title}} - {{e.created}} </div>
+			<hr />
+			<div>{{e.text}}</div>
+			<br /> <br />
+	{% endfor %}
+	{% if page.has_previous %}
+		<a href="?page={{ page.previous_page_number }}">prev</a>
+	{% endif %}
+	| {{ page.number }} |
+	{% if page.has_next %}
+		<a href="?page={{ page.next_page_number }}">next</a>
+	{% endif %}
+	</div>
+{% endblock %}

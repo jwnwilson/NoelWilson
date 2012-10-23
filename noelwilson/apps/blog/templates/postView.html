@@ -1,0 +1,90 @@
+{% extends "myblog.html" %}
+
+{% block title %}
+Noel Wilsons Blog
+{% endblock %}	
+
+{% block content %}
+	<div class="contentBox" style="width:650px;float:left;padding:2.5%;">
+		<div class = "innerContentBox" style="top:0px;">
+			<div style="border:solid grey;border-width:1px;overflow: hidden;background-color:black;padding:1%;">
+			{% for post in page %}
+				<h3 style= "float:left;"><u>{{post.title}}</u></h3> <p style="float:left;position:relative;left:10px;top:10px;">- {{post.created|date:"D d M Y" }}</p>
+				<div style= "clear:both;">
+					<hr/>
+					<div>
+						<pre>{{post.text|safe}}</pre>
+					</div>
+					<br /> <br />
+				</div>
+				<div >
+					<pre>Posted at: {{post.created|date:"f" }} 	Posted in: No catagory</pre>
+					<a href="">comments:</a>
+				</div>
+			{% endfor %}
+			 </div>
+			 {% for comment in comments %}
+				 <div style="border:solid grey;border-width:1px;overflow: hidden;background-color:black;padding:1%;">
+				 		<pre>{{comment.author|safe}} - {{comment.created|date:"D d M Y" }}</pre><p style="float:left;position:relative;left:10px;top:10px;"></p>
+						<hr/>
+						<div>
+							<pre>{{comment.text|safe}}</pre>
+						</div>
+						<br />
+						<pre>Posted at: {{comment.created|date:"f" }}</pre>
+					</div>
+			 {% endfor %}
+			 <div class="contentBox">
+				<h2>new comment</h2>
+				<form action="." method="POST">
+					{% csrf_token %}
+					{{ comment_form.as_p }}
+					<input type="submit" value="Save">
+				</form>
+			</div>
+			{% if post.has_previous %}
+				<a href="?page={{ page.previous_page_number }}">prev</a>
+			{% endif %}
+			| {{ post.number }} |
+			{% if post.has_next %}
+				<a href="?page={{ page.next_page_number }}">next</a>
+			{% endif %}
+		</div>
+	</div>
+	<div style= "float:right;width:225px;" class="contentBox" >
+		<div class="innerContentBox" style= "">
+			<h2>About me</h2>
+			<hr/>
+			<img src="{{ STATIC_PREFIX }}img/me.jpg" style="float:left;width:100px;height:100px;" />
+			<div style="float:left;position:relative;left:10px;">
+				<p> Current location:<br/> London UK</p>
+			</div>
+			<div style="clear:both;float:left;">
+				<p>{{aboutMe|safe}}</p>
+			</div>
+		</div>
+	</div>
+	<div style= "clear:right;float:right;width:225px;" class="contentBox" >
+		<div class="innerContentBox">
+			<h2>Blog Archive</h2>
+			<hr/>
+			{% for year, yearData in years.items %}
+				<h3>{{year}}</h3>
+				{% for month, monthData in yearData.items %}
+					<p>{{month}}</p>
+					{% for entryData in monthData %}
+						<a href="/myBlog/postView/{{entryData.id}}/">{{entryData.title}}</a>
+						<br />
+					{% endfor %}
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+	<div style= "clear:right;float:right;width:225px;;" class="contentBox" >
+		<div class="innerContentBox">
+			<h2>Categories</h2>
+			<hr/>
+		</div>
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,17 @@
+<pre class="whiteText">
+A simple blog using
+
+</pre>
+<ul class="whiteText">
+<li>Python</li>
+<li>Django</li>
+<li>MySQL</li>
+<li>Html</li>
+<li>CSS</li>
+</ul>
+<pre class="whiteText">
+
+Dynamically creates Html pages using templates and will perform all the normal actions required for a blog including allowing user login and storing of data in a database to be displayed at a users request.
+
+In my Github repository
+</pre>
