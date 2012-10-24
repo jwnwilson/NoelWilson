@@ -2,15 +2,23 @@ from django.db import models
 from django.db.models.signals import post_save
 from noelwilson.apps.data import handlers
 from noelwilson.apps.accounts.models import UserProfile
-from noelwilson.apps.blog.manager import EntryManager
+from noelwilson.apps.blog.manager import EntryManager, CategoryManager,TagManager
 
 class Tag(models.Model):
 	tag_name = models.CharField(max_length= 64)
-	#entry = models.ForeignKey(Entry)
+	created = models.DateTimeField(auto_now_add=True)
 	
+	objects = TagManager()
+	#entry = models.ForeignKey(Entry)
+	def __unicode__(self):
+		return u"%s" % (self.tag_name)
 class Category(models.Model):
 	category_name = models.CharField(max_length= 64)
+	created = models.DateTimeField(auto_now_add=True)
 	#entry = models.ForeignKey(Entry)
+	objects = CategoryManager()
+	def __unicode__(self):
+		return u"%s" % (self.category_name)
 
 class Entry(models.Model):
 	user = models.ForeignKey(UserProfile)

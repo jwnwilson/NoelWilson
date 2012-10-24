@@ -8,5 +8,6 @@ urlpatterns = patterns('noelwilson.apps.blog.views',
     url(r'^myBlog/blogManager/$', 'blogManager', name="blog_blogManager"),
     url(r'^myBlog/postView/(?P<blog_id>\d+)/$', 'postView', name="blog_PostView"),
     url(r'^myBlog/postView/$', 'postView', name="blog_PostViewDefault"),
-    url(r'^myBlog/newCategory/$', 'newCategory', name="blog_newCategory"),
+    url(r'^myBlog/newCategory/(?P<category_id>\d+)/$', 'newCategory', name="blog_newCategory"),
+    url(r'^myBlog/newCategory/$', 'newCategory', name="blog_newCategoryDefault"),
 )

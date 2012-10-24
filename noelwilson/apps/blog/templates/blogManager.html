@@ -12,7 +12,7 @@ Blog Manager
 				<a class="noExpand" href="{% url blog_blogEntryDefault %}">New Post</a>
 			</div>
 			<div style="float:left;border:solid grey;padding:1%;">
-				<a class="noExpand" href="{% url blog_newCategory %}">New Category</a>
+				<a class="noExpand" href="{% url blog_newCategoryDefault %}">New Category</a>
 			</div>
 		<br /><br /><br />
 		<form action="." method="POST">
@@ -24,6 +24,16 @@ Blog Manager
 			{% endfor %}
 			<input type="submit" value="edit_selected" name="blogManagerSubmit">
 			<input type="submit" value="delete_selected" name="blogManagerSubmit">
+		</form>
+		<form action="." method="POST">
+			{% csrf_token %}
+			{% for field in category_form %}
+				<div class="fieldWrapper" >
+					{{ field }}
+				</div>
+			{% endfor %}
+			<input type="submit" value="edit_selected" name="categoryManagerSubmit">
+			<input type="submit" value="delete_selected" name="categoryManagerSubmit">
 		</form>
 	</div>
 {% endblock %}	

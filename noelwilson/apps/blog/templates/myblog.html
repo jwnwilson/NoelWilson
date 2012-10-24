@@ -87,7 +87,7 @@ Noel Wilsons Blog
 				{% for month, monthData in yearData.items %}
 					<p>{{month}}</p>
 					{% for entryData in monthData %}
-						<a href="/myBlog/postView/{{entryData.id}}/">{{entryData.title}}</a>
+						<a href="/myBlog/postView/{{entryData.id}}/">- {{entryData.title}}</a>
 						<br />
 					{% endfor %}
 				{% endfor %}
@@ -98,6 +98,12 @@ Noel Wilsons Blog
 		<div class="innerContentBox">
 			<h2>Categories</h2>
 			<hr/>
+			{% for category in categories %}
+				<h3>{{category.category_name}}</h3>
+				{% for entry in category.entries %}
+					<a href="/myBlog/postView/{{entry.id}}/">{{entry}}</a>
+				{% endfor %}
+			{% endfor %}
 		</div>
 	</div>
 	

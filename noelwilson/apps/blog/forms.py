@@ -42,12 +42,12 @@ class CommentForm(forms.Form):
 class CategoryForm(forms.Form):
     category_name = forms.CharField()
     
-    """def clean_category(self):
+    def clean_category(self):
         cd = self.cleaned_data
         print cd
         if cd.get('category_name') == None:
         	raise forms.ValidationError("Category cannot be empty")
-		return cd.get('category_name')"""
+		return cd.get('category_name')
 		
 class BlogManagerForm(forms.Form):
     # Get titles of users blog posts
@@ -80,3 +80,33 @@ class BlogManagerForm(forms.Form):
             self.entryTitles.append((entry.title,entry.title))
         return self.entryTitles
         
+class CategoryManagerForm(forms.Form):
+    # Get titles of users blog posts
+    user = None
+    CategoryNames=None
+    # check box
+    category_List = None
+    
+    def __init__(self, user, *args, **kwargs):
+        super(CategoryManagerForm, self).__init__(*args, **kwargs)
+        self.user = user
+        self.CategoryNames = self.getCategoryNames()
+        self.fields['category_List'] = forms.MultipleChoiceField(required= False,widget= CheckboxSelectMultiple, choices= self.CategoryNames)
+        
+    def clean_categoryList(self, submitType):
+        cd = self.cleaned_data
+        if submitType == 'edit_selected':
+            ret = cd.get('category_List')
+            if len(ret) > 1:
+                raise forms.ValidationError("Please select only one blog to edit.")
+            else:
+                return ret
+        else:
+            return cd.get('category_List')
+        
+    def getCategoryNames(self):
+        categories = Category.objects.published_entries()
+        self.CategoryNames = []
+        for cat in categories:
+            self.CategoryNames.append((cat.category_name.split()[0],cat.category_name))
+        return self.CategoryNames

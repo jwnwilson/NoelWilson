@@ -43,7 +43,6 @@ class Photo(models.Model):
         return "/photos/%s/" % (self.id)
         
     def get_pic_url(self, size='small'):
-    	print size
         # small_square=75x75
         # thumb=100 on longest side
         # small=240 on longest side
