@@ -6,10 +6,10 @@ from noelwilson.apps.blog.models import Entry
 from noelwilson.apps.blog.models import Category
 
 class BlogForm(forms.Form):
-    title = forms.CharField()
-    text = forms.CharField( widget = forms.Textarea )
+    title = forms.CharField(widget=forms.TextInput(attrs={'class':'blogFormTitle'}))
+    text = forms.CharField( widget = forms.Textarea(attrs={'class':'blogForm'}) )
     category = forms.ModelChoiceField(queryset=Category.objects.all())
-    tags = forms.CharField()
+    tags = forms.CharField(widget=forms.TextInput(attrs={'class':'blogFormTitle'}))
     
     def clean_title(self):
         cd = self.cleaned_data

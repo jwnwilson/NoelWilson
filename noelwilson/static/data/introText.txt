@@ -1,0 +1,21 @@
+<h1>Welcome</h1>
+
+<a href="">CV link</a><pre>             GitHub<pre>
+
+<hr/>
+
+<pre class="whiteText">Overview
+
+Hello! I'm Noel and this a collection of my skills both professional and those I develop purely for my own entertainment.
+
+Employers please see my technical work or art work respectively,
+
+
+
+Contact Details:
+
+Linked In profile
+
+Email: jwnwilson@hotmail.co.uk
+
+mob : 07756958746</pre>

@@ -1,0 +1,3 @@
+div.blog_div {
+	background-color: black;
+}

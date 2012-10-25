@@ -13,7 +13,11 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
-import os
+import os, sys
+
+FILE_PATH = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.path.pardir))
+if FILE_PATH not in sys.path:
+	sys.path.append( FILE_PATH )
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "noelwilson.settings")
 
@@ -23,6 +27,3 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "noelwilson.settings")
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
-# Apply WSGI middleware here.
-# from helloworld.wsgi import HelloWorldApplication
-# application = HelloWorldApplication(application)

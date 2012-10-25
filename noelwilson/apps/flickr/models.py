@@ -5,7 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from noelwilson.apps.flickr.manager import PhotoManager
 
 import flickrapi
-import os, sys
+import os, sys, platform
 import inspect
 
 class BigintField(models.IntegerField):
@@ -78,13 +78,18 @@ def sync_flickr_photos(*args, **kwargs):
     paginate_by = 5         # Get 20 photos at a time
     dupe = False            # Set our dupe flag for the following loop
     
-    # if last sync less than hour return
-    last_sync = cache.get('last_sync')
-    if last_sync:
-        return
-    
     if kwargs.has_key('album') == False:
         raise Exception('Expected kwarg \'name\' not found when calling: %s' % (sys._getframe(1).f_code.co_name))
+    
+    # if last sync less than hour return
+    if kwargs['album'] == '3DArtwork':
+        last_sync = cache.get('last_sync3D')
+        if last_sync:
+            return
+    elif kwargs['album'] == '2DArtwork':
+        last_sync = cache.get('last_sync2D')
+        if last_sync:
+            return
     # get correct set
     try:
         currentAlbum = Album.objects.get(name= kwargs['album'])
@@ -92,11 +97,13 @@ def sync_flickr_photos(*args, **kwargs):
         raise Exception('Album not found with name %s' % (kwargs['album']))
     
     flickr = flickrapi.FlickrAPI(API_KEY,FLICKR_SECRET, cache=True)          # Get our flickr client running
-    if os.name == 'posix':
+    if platform.system() == 'Linux':
         flickr.token.path = '/tmp/flickrtokens'
-    elif os.name == 'nt':
+    elif platform.system() == 'Windows':
         flickr.token.path = 'E:/tmp/flickrtokens'
-        
+    else:
+        raise Exception("Unable to find operating system from python platform module")
+    
     while (not dupe):
         photos = flickr.walk_set(currentAlbum.flickr_id,per_page=paginate_by)
         

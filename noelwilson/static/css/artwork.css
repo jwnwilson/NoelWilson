@@ -1,0 +1,12 @@
+div.picture_div {
+	height:350px;
+	width:250px;
+	float:left;
+	margin:2.5%;
+}
+
+.picture {
+	padding:10%;
+	background-color: white;
+}
+

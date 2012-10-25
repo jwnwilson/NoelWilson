@@ -1,0 +1,14 @@
+div.blog_div {
+	background-color: black;
+}
+
+.blogForm{
+	background-color: black;
+	color: white;
+	font-size: 1.0em;
+	font-weight:200;
+	font-family: arial, helvetica, sans-serif;
+	text-decoration: none;
+}
+
+

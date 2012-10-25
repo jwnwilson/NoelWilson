@@ -1,11 +1,11 @@
 # Django settings for noelwilson project.
 
-import socket, os, sys
+import socket, os, sys, platform
  
-if socket.gethostname() == 'productionserver.com':
-    DEBUG = False
-else:
+if socket.gethostname() == 'noelpc':
     DEBUG = True
+else:
+	DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -183,17 +183,19 @@ AUTH_PROFILE_MODULE = "accounts.UserProfile"
 
 DEFAULT_FILE_STORAGE = "/static/data/"
 
-if os.name == 'posix':
+if platform.system() == 'Windows':
 	CACHES = {
 		'default': {
 			'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
 			'LOCATION': 'E:/tmp',
 		}
 	}
-elif os.name == 'nt':
+elif platform.system() == 'Linux':
 	CACHES = {
 		'default': {
 			'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
 			'LOCATION': '/tmp/django_cache',
 		}
 	}
+else:
+	raise Exception("Unable to find operating system from python platform module")

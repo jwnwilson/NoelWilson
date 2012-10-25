@@ -2,12 +2,10 @@
 
 {% block css %}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/technical.css">
-<link rel="stylesheet" href="{{ STATIC_URL }}css/blog.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/blog2.css">
 {% endblock %}
 
 {% block js %}
- <script src="{{ STATIC_PREFIX }}js/blog.js" type="text/javascript"
-    charset="utf-8"></script>
 {% endblock %}
 
 {% block title %}
@@ -49,7 +47,7 @@ Noel Wilsons Blog
 						<br /> <br />
 					</div>
 					<div >
-						<pre>Posted at: {{e.created|date:"f" }} 	Posted in: No catagory</pre>
+						<pre>Posted at: {{e.created|date:"f" }} 	Posted in: {{e.category.category_name }}</pre>
 						<a class="noExpand" href="postView/{{e.id}}/">comments: </a>
 					</div>
 				 </div>
@@ -101,7 +99,7 @@ Noel Wilsons Blog
 			{% for category in categories %}
 				<h3>{{category.category_name}}</h3>
 				{% for entry in category.entries %}
-					<a href="/myBlog/postView/{{entry.id}}/">{{entry}}</a>
+					<a href="/myBlog/postView/{{entry.id}}/">- {{entry.title}}</a>
 				{% endfor %}
 			{% endfor %}
 		</div>

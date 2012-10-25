@@ -8,6 +8,7 @@ urlpatterns = patterns('noelwilson.apps.main.views',
     url(r'^artwork/(?P<projectName>\w+)/$', 'artwork', name="main_artworkVar"),
     url(r'^artwork/$', 'artwork', name="main_artwork"),
     url(r'^training/$', 'training', name="main_training"),
+    url(r'^download/(?P<filePath>.+)/$', 'download', name="main_download"),
 )
 
 """

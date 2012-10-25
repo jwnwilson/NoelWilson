@@ -1,5 +1,17 @@
 [
 	{"pk": 1, 
+	"model": "flickr.album", 
+	"fields": {
+		"name": "2DArtwork",
+		"flickr_id":"72157631779503116"}
+	},
+	{"pk": 2, 
+	"model": "flickr.album", 
+	"fields": {
+		"name": "3DArtwork",
+		"flickr_id":"72157631782922164"}
+	},
+	{"pk": 1, 
 	"model": "data.projectLists", 
 	"fields": {
 		"projectName": "webDev"}
@@ -22,7 +34,12 @@
 	{"pk": 5, 
 	"model": "data.projectLists", 
 	"fields": {
-		"projectName": "artwork"}
+		"projectName": "3DArtwork"}
+	},
+	{"pk": 6, 
+	"model": "data.projectLists", 
+	"fields": {
+		"projectName": "2DArtwork"}
 	},
 	{"pk": 1, 
 	"model": "data.project", 

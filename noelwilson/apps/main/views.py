@@ -6,6 +6,7 @@ from noelwilson.apps.data.models import Project, ProjectLists
 from noelwilson.apps.flickr.models import Photo, sync_flickr_photos
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.files import File 
 
 import os, sys
 import datetime
@@ -88,4 +89,16 @@ def training(request, projectName=None):
 		project.videoFile = getDataFile(project.videoFile)
 	ctx = { 'projects':projects}
 	return render_to_response('training.html', ctx , context_instance= RequestContext(request) )
+	
+def download(request, filePath=None):
+	"""
+	This function is not used as of yet still looking for a good down load
+	handling method
+	"""
+	if filePath == None:
+		raise Exception("File not found for download.")
+	downloadFile  = open(filePath, "r")
+	django_file = File(downloadFile)
+	
+	raise Http404
 

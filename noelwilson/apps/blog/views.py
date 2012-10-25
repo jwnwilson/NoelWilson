@@ -53,7 +53,7 @@ def getCategories():
 	""" 
 	get categories of posts
 	"""
-	categories = Category.objects.all().order_by('-created')
+	categories = Category.objects.all().order_by('created')
 	categoryList = []
 	dataDict = {}
 	for category in categories:
@@ -61,7 +61,7 @@ def getCategories():
 		dataDict['date']= category.created
 		dataDict['category_name'] = category.category_name
 		dataDict['entries'] = Entry.objects.filter(category__category_name__contains = category.category_name)
-		categoryList.append(dataDict)
+		categoryList.append(copy.deepcopy(dataDict))
 		
 	return categoryList
 
@@ -112,7 +112,7 @@ def blogEntry(request,blog_id= None):
 				blogEntry.save()
 			return redirect(reverse("blog_myBlog"))
 		else:
-			raise Error("blog form not valid")
+			raise Exception("blog form not valid")
 	else:
 		if blog_id:
 			blogEntry = Entry.objects.get(pk= pk)
@@ -221,7 +221,7 @@ def blogManager(request):
 def postView(request, blog_id= None):
 	if request.method == "POST":
 		if blog_id == None:
-			raise Error("blog_id not found for comment")
+			raise Exception("blog_id not found for comment")
 		comment_form = CommentForm(request.POST)
 		if comment_form.is_valid():
 			text = comment_form.cleaned_data['text']
@@ -233,7 +233,7 @@ def postView(request, blog_id= None):
 			comment.save()
 			return redirect(reverse("blog_PostView", args=(blog_id, ) ) )
 		else:
-			raise Error("blog form not valid")
+			raise Exception("blog form not valid")
 			
 	# if blog_id == None get lasest id
 	if blog_id == None:
@@ -292,7 +292,7 @@ def newCategory(request, category_id= None):
 				category.save()
 			return redirect(reverse("blog_blogManager"))
 		else:
-			raise Error("category form not valid")
+			raise Exception("category form not valid")
 			
 	# if this category exists get data else create blank form
 	if category_id:
