@@ -207,19 +207,9 @@ AUTH_PROFILE_MODULE = "accounts.UserProfile"
 
 DEFAULT_FILE_STORAGE = "/static/data/"
 
-if platform.system() == 'Windows':
-	CACHES = {
-		'default': {
-			'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-			'LOCATION': 'E:/tmp',
-		}
-	}
-elif platform.system() == 'Linux':
-	CACHES = {
-		'default': {
-			'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-			'LOCATION': '/tmp/django_cache',
-		}
-	}
-else:
-	raise Exception("Unable to find operating system from python platform module")
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}

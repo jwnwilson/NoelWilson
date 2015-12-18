@@ -5,6 +5,9 @@ import os.path
 import logging
 import time
 #import sqlite3
+import MySQLdb
+
+settings = __import__(os.environ['DJANGO_SETTINGS_MODULE']).settings
 
 from flickrapi.exceptions import LockingError, CacheDatabaseError
 from flickrapi.auth import FlickrAccessToken
@@ -125,26 +128,32 @@ class OAuthTokenCache(object):
         
         self.api_key = api_key
         self.lookup_key = lookup_key
-        self.path = os.path.expanduser(os.path.join("~", ".flickr"))
-        self.filename = os.path.join(self.path, 'oauth-tokens.sqlite')
+        #self.path = os.path.expanduser(os.path.join("~", ".flickr"))
+        #self.filename = os.path.join(self.path, 'oauth-tokens.sqlite')
+        db_settings = settings.DATABASES.get("default")
+        self.db = MySQLdb.connect(db_settings.get("HOST", "localhost"),
+                                  db_settings.get("USER", ''),
+                                  db_settings.get("PASS", ''),
+                                  db_settings.get("NAME"))
 
-        if not os.path.exists(self.path):
-            os.makedirs(self.path)
+        #if not os.path.exists(self.path):
+        #    os.makedirs(self.path)
         
         self.create_table()
 
     def create_table(self):
         '''Creates the DB table, if it doesn't exist already.'''
-        
-        db = sqlite3.connect(self.filename)
-        curs = db.cursor()
+        import pdb
+        pdb.set_trace()
+        #db = sqlite3.connect(self.filename)
+        curs = self.db.cursor()
         
         # Check DB version
         curs.execute('CREATE TABLE IF NOT EXISTS oauth_cache_db_version (version int not null)')
         curs.execute('select version from oauth_cache_db_version')
         oauth_cache_db_version = curs.fetchone()
         if not oauth_cache_db_version:
-            curs.execute('INSERT INTO oauth_cache_db_version (version) values (?)',
+            curs.execute('INSERT INTO oauth_cache_db_version (version) values (%s)'%
                          str(self.DB_VERSION))
         elif int(oauth_cache_db_version[0]) != self.DB_VERSION:
             raise CacheDatabaseError('Unsupported database version %s' %
@@ -170,10 +179,10 @@ class OAuthTokenCache(object):
         if (self.api_key, self.lookup_key) in self.RAM_CACHE:
             return self.RAM_CACHE[self.api_key, self.lookup_key]
 
-        db = sqlite3.connect(self.filename)
+        db = self.db.cursor()
         curs = db.cursor()
         curs.execute('''SELECT oauth_token, oauth_token_secret, access_level, fullname, username, user_nsid
-                        FROM oauth_tokens WHERE api_key=? and lookup_key=?''',
+                        FROM oauth_tokens WHERE api_key="%s" and lookup_key="%s"'''%
                      (self.api_key, self.lookup_key))
         token_data = curs.fetchone()
         
@@ -191,12 +200,11 @@ class OAuthTokenCache(object):
         # Remember for later use
         self.RAM_CACHE[self.api_key, self.lookup_key] = token
 
-        db = sqlite3.connect(self.filename)
+        db = self.db.cursor()
         curs = db.cursor()
         curs.execute('''INSERT OR REPLACE INTO oauth_tokens
             (api_key, lookup_key, oauth_token, oauth_token_secret, access_level, fullname, username, user_nsid)
-            values (?, ?, ?, ?, ?, ?, ?, ?)''',
-            (self.api_key, self.lookup_key,
+            values (%s, %s, %s, %s, %s, %s, %s, %s)'''% (self.api_key, self.lookup_key,
              token.token, token.token_secret, token.access_level,
              token.fullname, token.username, token.user_nsid)
         )
@@ -210,9 +218,9 @@ class OAuthTokenCache(object):
         if (self.api_key, self.lookup_key) in self.RAM_CACHE:
             del self.RAM_CACHE[self.api_key, self.lookup_key]
        
-        db = sqlite3.connect(self.filename)
+        db = self.db.cursor()
         curs = db.cursor()
-        curs.execute('''DELETE FROM oauth_tokens WHERE api_key=? and lookup_key=?''',
+        curs.execute('''DELETE FROM oauth_tokens WHERE api_key=% and lookup_key=%'''%
                      (self.api_key, self.lookup_key))
         db.commit()
         

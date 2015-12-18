@@ -96,7 +96,7 @@ def sync_flickr_photos(*args, **kwargs):
     except ObjectDoesNotExist:
         raise Exception('Album not found with name %s' % (kwargs['album']))
     
-    flickr = flickrapi.FlickrAPI(API_KEY,FLICKR_SECRET, cache=True)          # Get our flickr client running
+    flickr = flickrapi.FlickrAPI(API_KEY, FLICKR_SECRET, cache=True, store_token=False)    # Get our flickr client running
     if platform.system() == 'Linux':
         flickr.token.path = '/tmp/flickrtokens'
     elif platform.system() == 'Windows':
