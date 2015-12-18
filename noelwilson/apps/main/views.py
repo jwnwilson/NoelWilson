@@ -24,8 +24,6 @@ def getDataFile(fileName):
 
 def homepage(request):		
     # get intro text
-    import pdb
-    pdb.set_trace()
     introText = getDataFile("introText.html")
     ctx = { 'introText':introText}
     return render_to_response('home.html', ctx , context_instance= RequestContext(request) )
