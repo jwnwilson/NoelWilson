@@ -15,9 +15,11 @@ framework.
 """
 import os, sys
 
-FILE_PATH = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.path.pardir))
-if FILE_PATH not in sys.path:
-	sys.path.append( FILE_PATH )
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if BASE_DIR not in sys.path:
+    sys.path.append(BASE_DIR)
+
+import appengine_config
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "noelwilson.settings")
 

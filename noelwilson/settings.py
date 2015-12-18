@@ -1,11 +1,9 @@
 # Django settings for noelwilson project.
 
 import socket, os, sys, platform
- 
-if socket.gethostname() == 'noelpc':
-    DEBUG = True
-else:
-	DEBUG = False
+
+DEBUG = True
+DEV_SERVER = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -14,16 +12,42 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'noelwilson',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
+ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilsonuk.googleplex.com"]
+
+# Database settings
+if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+    # Running on production App Engine, so use a Google Cloud SQL database.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/jwnwilsonuk:sqldb',
+            'NAME': 'jwnwilson',
+            'USER': 'jwnwilson',
+        }
     }
-}
+elif DEV_SERVER:
+    # Running in development, but want to access the Google Cloud SQL instance
+    # in production.
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '173.194.105.35',
+        'NAME': 'jwnwilson',
+        'USER': 'jwnwilson',
+        'PASSWORD': 'jwnwilsongoogle1',
+        }
+    }
+else:
+    # Running in development, so use a local MySQL database.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'jwnwilson',
+            'USER': 'root',
+            'PASSWORD': '',
+        }
+    }
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
