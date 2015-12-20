@@ -5,7 +5,7 @@ import socket, os, sys, platform
 DEBUG = True
 DEV_SERVER = False
 TEMPLATE_DEBUG = DEBUG
-LOG_LEVEL = "DEBUG"
+LOG_LEVEL = "INFO"
 
 ADMINS = (
     ('webmaster','jwnwilson@hotmail.co.uk'),

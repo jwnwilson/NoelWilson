@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from noelwilson import settings
 from noelwilson.apps.data.models import Project, ProjectLists
-from noelwilson.apps.flickr.models import Photo, sync_flickr_photos
+from noelwilson.apps.flickr.models import Photo
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.files import File 
