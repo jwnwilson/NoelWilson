@@ -5,6 +5,7 @@ import socket, os, sys, platform
 DEBUG = True
 DEV_SERVER = False
 TEMPLATE_DEBUG = DEBUG
+LOG_LEVEL = "DEBUG"
 
 ADMINS = (
     ('webmaster','jwnwilson@hotmail.co.uk'),
@@ -175,7 +176,21 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
+        'console': {
+            'level': LOG_LEVEL,
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -183,6 +198,11 @@ LOGGING = {
         }
     },
     'loggers': {
+        'django': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',

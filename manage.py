@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
+import appengine_config
+import noelwilson.settings
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "noelwilson.settings")

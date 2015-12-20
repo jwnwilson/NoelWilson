@@ -55,7 +55,7 @@ def artwork(request, projectName=None):
         project.text = getDataFile(project.text)
         project.videoFile = getDataFile(project.videoFile)
     # get most recent artwork pictures
-    sync_flickr_photos(album = projectName)
+    #sync_flickr_photos(album = projectName)
     photos = Photo.objects.filter(album__name__contains= projectName )
     # Seperate artwork up into pages of 9 entries
     paginator = Paginator(photos, 9)

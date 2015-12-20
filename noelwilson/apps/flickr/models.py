@@ -8,6 +8,7 @@ import flickrapi
 import os, sys, platform
 import inspect
 
+
 class BigintField(models.IntegerField):
     def db_type(self,connection):
         return 'BIGINT(20)'
@@ -95,15 +96,10 @@ def sync_flickr_photos(*args, **kwargs):
         currentAlbum = Album.objects.get(name= kwargs['album'])
     except ObjectDoesNotExist:
         raise Exception('Album not found with name %s' % (kwargs['album']))
-    
-    flickr = flickrapi.FlickrAPI(API_KEY, FLICKR_SECRET, cache=True, store_token=False)    # Get our flickr client running
-    if platform.system() == 'Linux':
-        flickr.token.path = '/tmp/flickrtokens'
-    elif platform.system() == 'Windows':
-        flickr.token.path = 'E:/tmp/flickrtokens'
-    else:
-        raise Exception("Unable to find operating system from python platform module")
-    
+
+    flickr = flickrapi.FlickrAPI(API_KEY, FLICKR_SECRET, cache=False, store_token=False)    # Get our flickr client running
+    #flickr.cache = cache
+
     while (not dupe):
         photos = flickr.walk_set(currentAlbum.flickr_id,per_page=paginate_by)
         

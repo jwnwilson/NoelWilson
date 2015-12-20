@@ -344,7 +344,7 @@ class OAuthFlickrInterface(object):
             pass oauth_callback='oob' and have your application accept the verifier from the
             user instead. 
         """
-        
+
         self.log.debug('get_request_token(oauth_callback=%s):', oauth_callback)
 
         if oauth_callback is None:
@@ -438,7 +438,7 @@ class OAuthFlickrInterface(object):
         
         @return: Access token, a FlickrAccessToken object.
         """
-        
+
         if self.oauth.client.resource_owner_key is None:
             raise FlickrError('No resource owner key set, you probably forgot to call get_request_token(...)')
         if self.oauth.client.verifier is None:
