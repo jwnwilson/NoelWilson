@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6acf7ddb-420c-4fe2-a85d-0b05963f70a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/accounts/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/accounts/signals/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/accounts/signals/handlers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/blog/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/data/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/flickr/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/flickr/management/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/flickr/management/commands/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noelwilson/apps/flickr/management/commands/sync_photos.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/NoelWilson.iml" afterPath="$PROJECT_DIR$/.idea/NoelWilson.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/accounts/models.py" afterPath="$PROJECT_DIR$/noelwilson/apps/accounts/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/accounts/views.py" afterPath="$PROJECT_DIR$/noelwilson/apps/accounts/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/blog/models.py" afterPath="$PROJECT_DIR$/noelwilson/apps/blog/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/blog/templates/blogManager.html" afterPath="$PROJECT_DIR$/noelwilson/apps/blog/templates/blogManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/flickr/models.py" afterPath="$PROJECT_DIR$/noelwilson/apps/flickr/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/main/views.py" afterPath="$PROJECT_DIR$/noelwilson/apps/main/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/settings.py" afterPath="$PROJECT_DIR$/noelwilson/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/blog/views.py" afterPath="$PROJECT_DIR$/noelwilson/apps/blog/views.py" />
     </list>
     <ignored path="NoelWilson.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,16 +28,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blogManager.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noelwilson/apps/blog/templates/blogManager.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.875">
-              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -89,9 +61,21 @@
         <entry file="file://$PROJECT_DIR$/noelwilson/apps/data/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/noelwilson/apps/blog/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2863777">
+              <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,7 +115,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noelwilson/apps/main/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -195,6 +179,7 @@
         <option value="$PROJECT_DIR$/noelwilson/apps/blog/admin.py" />
         <option value="$PROJECT_DIR$/noelwilson/apps/data/admin.py" />
         <option value="$PROJECT_DIR$/noelwilson/apps/flickr/admin.py" />
+        <option value="$PROJECT_DIR$/noelwilson/apps/blog/views.py" />
       </list>
     </option>
   </component>
@@ -853,16 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noelwilson/apps/blog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noelwilson/apps/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.7777777">
@@ -971,36 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noelwilson/apps/data/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noelwilson/apps/data/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noelwilson/apps/flickr/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noelwilson/apps/flickr/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1024,6 +969,46 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noelwilson/apps/flickr/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noelwilson/apps/data/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noelwilson/apps/data/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noelwilson/apps/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2863777">
+          <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
