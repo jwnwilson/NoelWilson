@@ -6,8 +6,8 @@
 # TODO: Enter your application id below. If you have signed up
 # using cloud.google.com/console use the "project id" for your application
 # id.
-application: jwnwilsonuk
-version: v0-0-4-20151221
+application: jwnwilson-eu
+version: v0-0-5-20151221
 runtime: python27
 api_version: 1
 threadsafe: yes

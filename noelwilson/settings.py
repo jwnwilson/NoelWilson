@@ -36,7 +36,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilsonuk.appspot.com"]
+ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilson-eu.appspot.com"]
 
 # Database settings
 if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
@@ -46,7 +46,7 @@ if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '/cloudsql/jwnwilsonuk:sqldb',
             'NAME': 'jwnwilson',
-            'USER': 'jwnwilson',
+            'USER': 'anu',
         }
     }
 elif DEV_SERVER:
