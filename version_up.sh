@@ -82,7 +82,7 @@ then
     version="${VERSION//./-}"
     #echo "Setting version from git: $version"
     echo "Setting app.yaml file version: $version"
-    sed -i '' "2s/.*/version: $version/" app.yaml
+    sed -i '' "10s/.*/version: $version/" app.yaml
     echo ""
 else
     # If we found debug = true and were unable to fix warn and exit
