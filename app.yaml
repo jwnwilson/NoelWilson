@@ -1,5 +1,5 @@
 # This file specifies your Python application's runtime configuration
-# including URL routing, versions, static file uploads, etc. See
+version: v0-0-2-20151221
 # https://developers.google.com/appengine/docs/python/config/appconfig
 # for details.
 

@@ -20,8 +20,8 @@ contains() {
 }
 
 # Script variables
-settings_file=notifications/settings.py
-settings_debug_line=16
+settings_file=noelwilson/settings.py
+settings_debug_line=5
 appcache_file=app.yaml
 files_check_ok=1
 
@@ -53,16 +53,16 @@ file_debug=`sed "$settings_debug_line!d" $settings_file`
 if [ "$file_debug" != "DEBUG = False" ]
 then
     echo "DEBUG set to True attempting to set to False"
-    cp $settings_file "main/settings_temp.py"
-    sed -i 's/DEBUG = True/DEBUG = False/' "main/settings_temp.py"
-    line_var=`sed "$settings_debug_line!d" "main/settings_temp.py"`
+    cp $settings_file "noelwilson/settings_temp.py"
+    sed -i '' 's/DEBUG = True/DEBUG = False/' "noelwilson/settings_temp.py"
+    line_var=`sed "$settings_debug_line!d" "noelwilson/settings_temp.py"`
     if [ "$line_var" == "DEBUG = False" ]
     then
         echo "settings set to DEBUG = False"
-        mv  "main/settings_temp.py" $settings_file
+        mv  "noelwilson/settings_temp.py" $settings_file
     else
         echo "Unexpected results no changes make to settings"
-        rm "main/settings_temp.py"
+        rm "noelwilson/settings_temp.py"
         files_check_ok=0
     fi
 else
@@ -82,7 +82,7 @@ then
     version="${VERSION//./-}"
     #echo "Setting version from git: $version"
     echo "Setting app.yaml file version: $version"
-    sed -i "2s/.*/version: $version/" app.yaml
+    sed -i '' "2s/.*/version: $version/" app.yaml
     echo ""
 else
     # If we found debug = true and were unable to fix warn and exit
@@ -91,7 +91,7 @@ else
 fi
 
 echo "Setting version for version.py: $PYVERSION"
-sed -i "1s/'.*'/'$PYVERSION'/" ./version.py
+sed -i '' "1s/'.*'/'$PYVERSION'/" ./version.py
 
 # Create a new commit with changes
 git commit -am "$ANNOTATION"

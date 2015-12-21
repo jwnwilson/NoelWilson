@@ -1,2 +1,2 @@
-__version__ = '0.0.1.20151120'
+__version__ = '0.0.2.20151221'
 __author__ = 'noelwilson'

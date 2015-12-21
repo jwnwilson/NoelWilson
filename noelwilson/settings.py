@@ -3,7 +3,7 @@
 import socket, os, sys, platform
 
 DEBUG = False
-DEV_SERVER = False
+DEV_SERVER = True
 TEMPLATE_DEBUG = DEBUG
 LOG_LEVEL = "INFO"
 
@@ -13,7 +13,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilsonuk.googleplex.com"]
+ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilsonuk.appspot.com"]
 
 # Database settings
 if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
@@ -34,8 +34,8 @@ elif DEV_SERVER:
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '173.194.105.35',
         'NAME': 'jwnwilson',
-        'USER': 'jwnwilson',
-        'PASSWORD': 'jwnwilsongoogle1',
+        'USER': 'anu',
+        'PASSWORD': 'sqlgoogle1',
         }
     }
 else:

@@ -20,10 +20,10 @@ contains() {
 }
 
 cd "$(dirname "$0")"
-settings_file="notifications/settings.py"
-settings_debug_line=16
+settings_file="noelwilson/settings.py"
+settings_debug_line=5
 app_file=app.yaml
-target_app_id="google.com:emt-notifications"
+target_app_id="jwnwilsonuk"
 #appcache_file=static/emt-tool.appcache
 
 echo ""
