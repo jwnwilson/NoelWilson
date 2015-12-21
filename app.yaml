@@ -7,7 +7,7 @@
 # using cloud.google.com/console use the "project id" for your application
 # id.
 application: jwnwilsonuk
-version: v0-0-3-20151221
+version: v0-0-4-20151221
 runtime: python27
 api_version: 1
 threadsafe: yes

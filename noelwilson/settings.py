@@ -7,10 +7,33 @@ DEV_SERVER = True
 TEMPLATE_DEBUG = DEBUG
 LOG_LEVEL = "INFO"
 
-ADMINS = (
-    ('webmaster','jwnwilson@hotmail.co.uk'),
-)
+# We can't use SMTP for app engine and will use the appengine backend instead
+USE_SMTP = False
+EMAIL_SUBJECT_PREFIX = '[Canvas Clothes] '
+if USE_SMTP:
+    with open('main/pass', 'rb') as fp:
+        password = fp.read().decode('base64')
 
+    if password is None:
+        raise RuntimeError("No password for SMTP set.")
+
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = 'jwnwilson88@gmail.com'
+    EMAIL_HOST_PASSWORD = password
+else:
+    if DEBUG:
+      EMAIL_BACKEND = 'appengine_emailbackend.EmailBackend'
+    else:
+      EMAIL_BACKEND = 'appengine_emailbackend.EmailBackend'
+      #EMAIL_BACKEND = 'appengine_emailbackend.async.EmailBackend'
+
+SERVER_EMAIL = 'jwnwilsonuk@appspot.gserviceaccount.com'
+
+ADMINS = (
+  ('Noel Wilson', 'jwnwilson@hotmail.co.uk'),
+)
 MANAGERS = ADMINS
 
 ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilsonuk.appspot.com"]
