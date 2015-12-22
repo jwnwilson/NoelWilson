@@ -96,15 +96,15 @@
 		"created": "2012-10-12T15:41:03Z", 
 		"projectList": 3}
 	},
-	{"pk": 6, 
-	"model": "data.project", 
+	{"pk": 6,
+	"model": "data.project",
 	"fields": {
-		"imageFile": "", 
-		"updated": "2012-10-12T16:10:52Z", 
-		"videoFile": "/trainingVideo/training2012.html",
-		"title": "Training 2012", 
-		"text": "trainingText/training2012.html", 
-		"created": "2012-10-12T15:41:03Z", 
+		"imageFile": "",
+		"updated": "2015-12-21T16:10:52Z",
+		"videoFile": "/trainingVideo/shoulderRehab2015.html",
+		"title": "Shoulder Rehab 2015",
+		"text": "/trainingText/shoulderRehab2015.html",
+		"created": "2015-12-21T15:41:03Z",
 		"projectList": 4}
 	},
 	{"pk": 7, 
@@ -158,8 +158,19 @@
 		"updated": "2012-10-12T16:10:52Z", 
 		"videoFile": "/technicalVideo/CharacterTD2010.html",
 		"title": "Rigging and Maya Technical Skills", 
-		"text": "technicalText/CharacterTD2010.html", 
+		"text": "/technicalText/CharacterTD2010.html",
 		"created": "2012-10-12T15:41:03Z", 
 		"projectList": 2}
+	},
+	{"pk": 12,
+	"model": "data.project",
+	"fields": {
+		"imageFile": "",
+		"updated": "2012-10-12T16:10:52Z",
+		"videoFile": "/trainingVideo/training2012.html",
+		"title": "Training 2012",
+		"text": "trainingText/training2012.html",
+		"created": "2012-10-12T15:41:03Z",
+		"projectList": 4}
 	}
 ]
