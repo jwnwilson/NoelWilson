@@ -36,7 +36,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilson-eu.appspot.com"]
+ALLOWED_HOSTS = ["127.0.0.1","localhost","jwnwilson-eu.appspot.com","noel-wilson.co.uk"]
 
 # Database settings
 if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
