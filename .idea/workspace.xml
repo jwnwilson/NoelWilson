@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6acf7ddb-420c-4fe2-a85d-0b05963f70a4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/apps/main/templates/technical.html" afterPath="$PROJECT_DIR$/noelwilson/apps/main/templates/technical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noelwilson/static/data/introText.html" afterPath="$PROJECT_DIR$/noelwilson/static/data/introText.html" />
-    </list>
+    <list default="true" id="6acf7ddb-420c-4fe2-a85d-0b05963f70a4" name="Default" comment="" />
     <ignored path="NoelWilson.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noelwilson/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+            <state relative-caret-position="180">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -75,16 +71,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blog1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noelwilson/static/data/technicalText/blog1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="blogV2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noelwilson/static/data/technicalText/blogV2.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -120,8 +106,18 @@
       <file leaf-file-name="deploy.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
+            <state relative-caret-position="-25">
               <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="version_up.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/version_up.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -580,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version_up.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/appengine_emailbackend/async.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -859,18 +848,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noelwilson/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
+        <state relative-caret-position="-25">
           <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noelwilson/settings.py">
+    <entry file="file://$PROJECT_DIR$/version_up.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        <state relative-caret-position="107">
+          <caret line="79" column="4" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
           <folding />
         </state>
       </provider>
