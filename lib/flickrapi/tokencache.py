@@ -4,8 +4,8 @@
 import os.path
 import logging
 import time
-#import sqlite3
-import MySQLdb
+import sqlite3
+#import MySQLdb
 
 settings = __import__(os.environ['DJANGO_SETTINGS_MODULE']).settings
 
@@ -53,7 +53,7 @@ class TokenCache(object):
         self.api_key = api_key
         self.username = username        
         self.memory = {}
-        self.path = os.path.join("~", ".flickr")
+        self.path = ".flickr"
 
     def get_cached_token_path(self):
         """Return the directory holding the app data."""
@@ -128,24 +128,22 @@ class OAuthTokenCache(object):
         
         self.api_key = api_key
         self.lookup_key = lookup_key
-        #self.path = os.path.expanduser(os.path.join("~", ".flickr"))
-        #self.filename = os.path.join(self.path, 'oauth-tokens.sqlite')
-        db_settings = settings.DATABASES.get("default")
-        self.db = MySQLdb.connect(db_settings.get("HOST", "localhost"),
-                                  db_settings.get("USER", ''),
-                                  db_settings.get("PASS", ''),
-                                  db_settings.get("NAME"))
+        self.path = ".flickr"
+        self.filename = os.path.join(self.path, 'oauth-tokens.sqlite')
+        # db_settings = settings.DATABASES.get("default")
+        # self.db = MySQLdb.connect(db_settings.get("HOST", "localhost"),
+        #                           db_settings.get("USER", ''),
+        #                           db_settings.get("PASS", ''),
+        #                           db_settings.get("NAME"))
 
-        #if not os.path.exists(self.path):
-        #    os.makedirs(self.path)
+        if not os.path.exists(self.path):
+           os.makedirs(self.path)
         
         self.create_table()
 
     def create_table(self):
         '''Creates the DB table, if it doesn't exist already.'''
-        import pdb
-        pdb.set_trace()
-        #db = sqlite3.connect(self.filename)
+        db = sqlite3.connect(self.filename)
         curs = self.db.cursor()
         
         # Check DB version

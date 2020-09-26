@@ -2,7 +2,7 @@
 
 import socket, os, sys, platform
 
-DEBUG = False
+DEBUG = True
 DEV_SERVER = True
 TEMPLATE_DEBUG = DEBUG
 LOG_LEVEL = "INFO"
