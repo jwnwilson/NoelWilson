@@ -1,8 +1,8 @@
 NoelWilson
 ==========
 
-My current website build with Django, updated to work on Google App Engine
+My first retired website build with Django, updated to work on Google App Engine
 
-http://www.noel-wilson.co.uk/
+https://jwnwilson-eu.appspot.com/
 
-Content needs updating as it is a few years old.
+I find this project nostalgic to look at.
