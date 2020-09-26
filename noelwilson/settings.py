@@ -45,38 +45,45 @@ ALLOWED_HOSTS = ["127.0.0.1",
                  "www.jwnwilson.com"]
 
 # Database settings
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-    # Running on production App Engine, so use a Google Cloud SQL database.
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/jwnwilsonuk:sqldb',
-            'NAME': 'jwnwilson',
-            'USER': 'anu',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite.db',
     }
-elif DEV_SERVER:
-    # Running in development, but want to access the Google Cloud SQL instance
-    # in production.
-    DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '173.194.105.35',
-        'NAME': 'jwnwilson',
-        'USER': 'anu',
-        'PASSWORD': 'sqlgoogle1',
-        }
-    }
-else:
-    # Running in development, so use a local MySQL database.
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'jwnwilson',
-            'USER': 'root',
-            'PASSWORD': '',
-        }
-    }
+}
+
+# if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+#     # Running on production App Engine, so use a Google Cloud SQL database.
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'HOST': '/cloudsql/jwnwilsonuk:sqldb',
+#             'NAME': 'jwnwilson',
+#             'USER': 'anu',
+#         }
+#     }
+# elif DEV_SERVER:
+#     # Running in development, but want to access the Google Cloud SQL instance
+#     # in production.
+#     DATABASES = {
+#         'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': '173.194.105.35',
+#         'NAME': 'jwnwilson',
+#         'USER': 'anu',
+#         'PASSWORD': 'sqlgoogle1',
+#         }
+#     }
+# else:
+#     # Running in development, so use a local MySQL database.
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'jwnwilson',
+#             'USER': 'root',
+#             'PASSWORD': '',
+#         }
+#     }
 
 
 # Local time zone for this installation. Choices can be found here:
