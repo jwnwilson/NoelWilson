@@ -5,4 +5,4 @@ My first retired website build with Django, updated to work on Google App Engine
 
 https://jwnwilson-eu.appspot.com/
 
-I find this project nostalgic to look at.
+Written in python 2 I find this project nostalgic to look at.
